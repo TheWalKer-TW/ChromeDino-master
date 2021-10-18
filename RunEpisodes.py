@@ -19,11 +19,11 @@ episode_scores = []
 for i in range(5000):
 
     # Choose look ahead amount at random
-    start_ahead = random.randint(80, 120)
+    start_ahead = random.randint(90, 110)
     ahead = start_ahead
 
     # Choose amount of time before increasing look ahead.
-    start_speedup = random.randint(190, 210)
+    start_speedup = random.randint(185, 195)       
     count = 0
 
     # Setting zero and white we will flip when game colors invert
@@ -40,30 +40,30 @@ for i in range(5000):
     # Bot rules you must update pixels!
     while True:
         last_time = time.time()
-        image = grab_screen(region=(85, 350, 715, 500))
+        image = grab_screen(region=(105, 480, 735, 740))
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         (thresh, image) = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
 
-        if image[144][376] == zero:
+        if image[254][376] == zero:
             ahead += 4
             holder = zero
             zero = white
             white = holder
 
         # Three cactus small
-        if image[92][ahead] == zero or image[92][ahead - 1] == zero or image[92][ahead - 2] == zero:
+        if image[160][ahead] == zero or image[92][ahead - 1] == zero or image[92][ahead - 2] == zero:
             keyboard.release("down")
             keyboard.press("space")
             time.sleep(0.01)
             keyboard.release("space")
 
         # DUCK
-        elif image[54][ahead] == zero:
+        elif image[120][ahead] == zero:
             #print("down")
             keyboard.press("down")
 
         # White background end test
-        if image[45][395] == white and image[35][370] == zero and image[35][420] == zero:
+        if image[96][532] == white and image[85][510] == zero and image[85][563] == zero:
             keyboard.release("space")
             keyboard.release("down")
             break
