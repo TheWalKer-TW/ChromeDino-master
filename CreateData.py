@@ -10,7 +10,7 @@ pic = 1
 my_path = os.path.abspath(os.path.dirname(__file__))
 path = os.path.join(my_path, "img\\")
 
-# Collets images until you press e
+# Collects images until you press e
 while not keyboard.is_pressed("e"):
 
     # You need to define the pixels you want to grab here!
