@@ -1,2 +1,2 @@
 # ChromeDino-Bot
- ChromeDino bot destroyer
+Using OpenCV to make a bot for the typical Dino Chrome Game.
